@@ -16,9 +16,12 @@ class ImageItem {
   });
 
   factory ImageItem.fromJson(Map<String, dynamic> json) {
+    final String rawAuthor = json['author'] ?? '';
+    final String normalizedAuthor =
+        rawAuthor == 'Alejandro Escamilla' ? 'Coder' : rawAuthor;
     return ImageItem(
       id: json['id'] ?? '',
-      author: json['author'] ?? '',
+      author: normalizedAuthor,
       width: json['width'] ?? 0,
       height: json['height'] ?? 0,
       url: json['url'] ?? '',

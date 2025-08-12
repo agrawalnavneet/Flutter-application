@@ -222,7 +222,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 
                 // Description
                 Text(
-                  'Photographer: ${image.author}',
+                  'Photographer: ${image.author == 'Alejandro Escamilla' ? 'Coder' : image.author}',
                   style: GoogleFonts.montserrat(
                     fontSize: 14,
                     fontWeight: FontWeight.w400,
