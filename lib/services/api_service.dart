@@ -1,21 +1,18 @@
-import 'dart:convert';
-import 'package:http/http.dart' as http;
 import 'package:findoc_assignment/models/image_item.dart';
 
 class ApiService {
   static const String baseUrl = 'https://picsum.photos';
   
- 
+  // Predefined list of image IDs from 0 to 9
   static const List<int> imageIds = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   Future<List<ImageItem>> getImages({int limit = 10}) async {
     try {
-
       List<ImageItem> images = [];
       
       for (int i = 0; i < limit && i < imageIds.length; i++) {
         final id = imageIds[i];
-       
+        
         images.add(ImageItem(
           id: id.toString(),
           author: 'Coder',

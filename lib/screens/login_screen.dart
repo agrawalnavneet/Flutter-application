@@ -202,7 +202,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 return ElevatedButton(
                                   onPressed: state is AuthLoading ? null : _submitForm,
                                   style: ElevatedButton.styleFrom(
-                                    backgroundColor: Colors.blue,
+                                    backgroundColor: Colors.blue, // Changed back to blue
                                     foregroundColor: Colors.white,
                                     padding: const EdgeInsets.symmetric(vertical: 12), // Reduced from 16 to 12
                                     shape: RoundedRectangleBorder(
