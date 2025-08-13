@@ -23,7 +23,6 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     super.initState();
     
-    // Load exactly 10 images (0-9)
     context.read<HomeBloc>().add(LoadImages());
   }
 
@@ -143,29 +142,28 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _buildImageCard(ImageItem image, BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
-    final imageWidth = screenWidth - 16; // Reduced padding from 32 to 16
+    final imageWidth = screenWidth - 16;
     final imageHeight = imageWidth / image.aspectRatio;
 
     return Container(
-      margin: const EdgeInsets.only(bottom: 12), // Reduced from 24 to 12
+      margin: const EdgeInsets.only(bottom: 12),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(8), // Reduced from 12 to 8
+        borderRadius: BorderRadius.circular(8),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.08), // Reduced opacity
-            spreadRadius: 0.5, // Reduced from 1
-            blurRadius: 4, // Reduced from 8
-            offset: const Offset(0, 1), // Reduced from 2 to 1
+            color: Colors.grey.withOpacity(0.08),
+            spreadRadius: 0.5,
+            blurRadius: 4,
+            offset: const Offset(0, 1),
           ),
         ],
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Image
           ClipRRect(
-            borderRadius: const BorderRadius.vertical(top: Radius.circular(8)), // Reduced from 12 to 8
+            borderRadius: const BorderRadius.vertical(top: Radius.circular(8)),
             child: Image.network(
               _apiService.getRandomImageUrl(imageWidth.toInt(), imageHeight.toInt(), image.id),
               width: imageWidth,
@@ -195,7 +193,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: const Center(
                     child: Icon(
                       Icons.error_outline,
-                      size: 32, // Reduced from 48 to 32
+                      size: 32,
                       color: Colors.grey,
                     ),
                   ),
@@ -204,39 +202,36 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           
-          // Content
           Padding(
-            padding: const EdgeInsets.all(12), // Reduced from 16 to 12
+            padding: const EdgeInsets.all(12), 
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Title
                 Text(
                   'Image ${image.id}',
                   style: GoogleFonts.montserrat(
-                    fontSize: 16, // Reduced from 18 to 16
+                    fontSize: 16,
                     fontWeight: FontWeight.w600,
                     color: Colors.black87,
                   ),
                 ),
-                const SizedBox(height: 6), // Reduced from 8 to 6
+                const SizedBox(height: 6),
                 
-                // Description
                 Text(
                   'Photographer: Coder',
                   style: GoogleFonts.montserrat(
-                    fontSize: 12, // Reduced from 14 to 12
+                    fontSize: 12,
                     fontWeight: FontWeight.w400,
                     color: Colors.grey[700],
                   ),
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                 ),
-                const SizedBox(height: 2), // Reduced from 4 to 2
+                const SizedBox(height: 2),
                 Text(
                   'Dimensions: ${image.width} × ${image.height}',
                   style: GoogleFonts.montserrat(
-                    fontSize: 10, // Reduced from 12 to 10
+                    fontSize: 10,
                     fontWeight: FontWeight.w400,
                     color: Colors.grey[600],
                   ),
